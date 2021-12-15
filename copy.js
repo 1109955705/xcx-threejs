@@ -14,4 +14,6 @@ async function copy(src, dest) {
 
 const src = './build/three.min.js';
 const targetSrc = '../../WeChatProjects/minicode-4/libs/three.min.js';
+// const src = './build/three.js';
+// const targetSrc = '../../WeChatProjects/minicode-4/libs/three.js';
 copy(src, targetSrc);
