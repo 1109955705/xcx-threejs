@@ -490,14 +490,10 @@ function WebGLState( gl, extensions, capabilities ) {
 
 	} else {
 
-		const extension = extensions.get( 'EXT_blend_minmax' );
+		// const extension = extensions.get( 'EXT_blend_minmax' );
 
-		if ( extension !== null ) {
-
-			equationToGL[ MinEquation ] = extension.MIN_EXT;
-			equationToGL[ MaxEquation ] = extension.MAX_EXT;
-
-		}
+		equationToGL[ MinEquation ] = 0x8007;
+		equationToGL[ MaxEquation ] = 0x8008;
 
 	}
 

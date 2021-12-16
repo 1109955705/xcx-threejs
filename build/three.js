@@ -28792,15 +28792,9 @@
 			loader.load(url, function (image) {
 				texture.image = image;
 				texture.needsUpdate = true;
-				console.log('xxxxxx', texture, onLoad);
-
 				if (onLoad !== undefined) {
-					console.log('1111111', onLoad);
 					onLoad(texture);
-					console.log('2222');
 				}
-
-				console.log('3333');
 			}, onProgress, onError);
 			return texture;
 		}

@@ -39,17 +39,16 @@ class ImageLoader extends Loader {
 		image.src = url  // 网络图片地址
 
 		function onImageLoad() {
-			console.log('onImageLoadxxxxxxxxxxx', Cache, onLoad, this)
 			Cache.add( url, this );
 
 			if ( onLoad ) onLoad( this );
 
 			scope.manager.itemEnd( url );
-			console.log('onImageLoad:end',)
+
 		}
 
 		function onImageError( event ) {
-			console.log('onImageError',)
+
 			if ( onError ) onError( event );
 
 			scope.manager.itemError( url );
