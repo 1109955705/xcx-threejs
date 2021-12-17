@@ -80,7 +80,8 @@
     "test-treeshake": "rollup -c test/rollup.treeshake.config.js",
     "make-screenshot": "node test/e2e/puppeteer.js --make",
     "prepublishOnly": "node utils/prepublish.js",
-    "copy": "node copy.js"
+    "copy": "node copy.js",
+    "upload": "node upload/index.js"
   },
   "keywords": [
     "three",
@@ -111,12 +112,15 @@
     "@babel/preset-env": "^7.15.6",
     "@rollup/plugin-babel": "^5.3.0",
     "@rollup/plugin-node-resolve": "^13.0.5",
+    "@yolanda-qn/qiniu-upload-cli": "1.1.0",
     "chalk": "^4.1.2",
     "concurrently": "^6.2.2",
     "eslint": "^7.32.0",
     "eslint-config-mdcs": "^5.0.0",
     "eslint-plugin-html": "^6.2.0",
     "glob": "^7.2.0",
+    "inquirer": "^8.2.0",
+    "qiniu": "^7.4.0",
     "rollup": "^2.57.0",
     "rollup-plugin-filesize": "^9.1.1",
     "rollup-plugin-terser": "^7.0.2",

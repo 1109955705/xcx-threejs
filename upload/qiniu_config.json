@@ -1,0 +1,9 @@
+{
+    "AK": "T0xp0yJHDU7pYrNeJYez7ZGSO6QRwC1l2NNjn2lw",
+    "SK": "3wZKwtHEQNND0ryQGbL0w_tSMIyJTE5FBTIfuaXk",
+    "bucket": "zhisonggang",
+    "zone": "华南",
+    "domain": "cdn.zhisonggang.com",
+    "targetDir": "../examples/models/obj/",
+    "prefix": "three"
+}
