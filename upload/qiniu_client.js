@@ -122,6 +122,7 @@ class QiniuClient {
    */
   listAll(prefix = '') {
     prefix = this.config.prefix + this.config.targetDir ?? ''
+    console.log('xxxxxx', prefix)
     return new Promise((resolve, reject) => {
       this.bucketManager.listPrefix(
         this.bucket,
@@ -223,9 +224,14 @@ class QiniuClient {
   batchUploadFile(pathArray, bashFolder, uploadToken = this.uploadToken) {
     const keys = [];
     const uploadPromise = [];
+    console.log('pathArray', pathArray, bashFolder, this.config.prefix)
+
     for (var i = 0; i < pathArray.length; i++) {
       var file = pathArray[i];
       var key = path.relative(bashFolder, file).replace(/\\/g, "/");
+      if (this.config.prefix) {
+        key = this.config.prefix + key 
+      }
       keys.push(key);
 
       uploadPromise.push(
@@ -239,7 +245,8 @@ class QiniuClient {
         })
       );
     }
-
+    // console.log('keys', keys)
+    // return
     return this.promiseIter(uploadPromise).then(() => {
       return new Promise((resolve, reject) => {
         let htmls = keys
@@ -333,6 +340,8 @@ class QiniuClient {
   autoUpload() {
     const { targetDir } = this.config;
     const folderPath = path.resolve(__dirname, targetDir);
+    // console.log('xxxxxxx', __dirname, targetDir, folderPath)
+
     return this.replaceContentWithFolderAndRefreshCDN(folderPath);
   }
 }

@@ -8,7 +8,6 @@ inquirer.prompt([{
     message: "上传到服务器,请确认是否上传:",
     name: "pwd"
 }]).then(res => {
-    console.log('xxxxxx', res)
     // if (res.pwd != 'upload') return
     let client = new QiniuClient(config)
     client.autoUpload()

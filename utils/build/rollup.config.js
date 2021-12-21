@@ -279,44 +279,44 @@ ${ code }`;
 }
 
 let builds = [
-	// {
-	// 	input: 'src/Three.js',
-	// 	plugins: [
-	// 		addons(),
-	// 		glconstants(),
-	// 		glsl(),
-	// 		header()
-	// 	],
-	// 	output: [
-	// 		{
-	// 			format: 'esm',
-	// 			file: 'build/three.module.js'
-	// 		}
-	// 	]
-	// },
-	// {
-	// 	input: 'src/Three.js',
-	// 	plugins: [
-	// 		addons(),
-	// 		glsl(),
-	// 		babel( {
-	// 			babelHelpers: 'bundled',
-	// 			compact: false,
-	// 			babelrc: false,
-	// 			...babelrc
-	// 		} ),
-	// 		babelCleanup(),
-	// 		header()
-	// 	],
-	// 	output: [
-	// 		{
-	// 			format: 'umd',
-	// 			name: 'THREE',
-	// 			file: 'build/three.js',
-	// 			indent: '\t'
-	// 		}
-	// 	]
-	// },
+	{
+		input: 'src/Three.js',
+		plugins: [
+			addons(),
+			glconstants(),
+			glsl(),
+			header()
+		],
+		output: [
+			{
+				format: 'esm',
+				file: 'build/three.module.js'
+			}
+		]
+	},
+	{
+		input: 'src/Three.js',
+		plugins: [
+			addons(),
+			glsl(),
+			babel( {
+				babelHelpers: 'bundled',
+				compact: false,
+				babelrc: false,
+				...babelrc
+			} ),
+			babelCleanup(),
+			header()
+		],
+		output: [
+			{
+				format: 'umd',
+				name: 'THREE',
+				file: 'build/three.js',
+				indent: '\t'
+			}
+		]
+	},
 	{
 		input: 'src/Three.js',
 		plugins: [

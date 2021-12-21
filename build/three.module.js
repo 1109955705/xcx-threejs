@@ -21259,14 +21259,10 @@ function WebGLState( gl, extensions, capabilities ) {
 
 	} else {
 
-		const extension = extensions.get( 'EXT_blend_minmax' );
+		// const extension = extensions.get( 'EXT_blend_minmax' );
 
-		if ( extension !== null ) {
-
-			equationToGL[ MinEquation ] = extension.MIN_EXT;
-			equationToGL[ MaxEquation ] = extension.MAX_EXT;
-
-		}
+		equationToGL[ MinEquation ] = 0x8007;
+		equationToGL[ MaxEquation ] = 0x8008;
 
 	}
 
@@ -38787,10 +38783,8 @@ class XMLHttpRequest {
   }
 
   open(method, url/* async, user, password 这几个参数在小程序内不支持*/) {
-    console.log('wx.request:open', url);
     _method.set(this, method);
     _url.set(this, url);
-    console.log('_url', _url);
     _changeReadyState.call(this, XMLHttpRequest.OPENED);
 
   }
@@ -39345,22 +39339,21 @@ class ImageLoader extends Loader {
 			return cached;
 
 		}
-		console.log('createImage', url);
+
 		const image = this.canvas.createImage();
 		image.src = url;  // 网络图片地址
 
 		function onImageLoad() {
-			console.log('onImageLoadxxxxxxxxxxx', Cache, onLoad, this);
 			Cache.add( url, this );
 
 			if ( onLoad ) onLoad( this );
 
 			scope.manager.itemEnd( url );
-			console.log('onImageLoad:end',);
+
 		}
 
 		function onImageError( event ) {
-			console.log('onImageError',);
+
 			if ( onError ) onError( event );
 
 			scope.manager.itemError( url );
@@ -39562,13 +39555,9 @@ class TextureLoader extends Loader {
 
 			texture.image = image;
 			texture.needsUpdate = true;
-			console.log('xxxxxx', texture, onLoad);
 			if ( onLoad !== undefined ) {
-				console.log('1111111', onLoad);
 				onLoad( texture );
-				console.log('2222');
 			}
-			console.log('3333');
 		}, onProgress, onError );
 
 		return texture;

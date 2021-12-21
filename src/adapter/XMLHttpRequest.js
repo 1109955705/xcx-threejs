@@ -73,10 +73,8 @@ class XMLHttpRequest {
   }
 
   open(method, url/* async, user, password 这几个参数在小程序内不支持*/) {
-    console.log('wx.request:open', url)
     _method.set(this, method)
     _url.set(this, url)
-    console.log('_url', _url)
     _changeReadyState.call(this, XMLHttpRequest.OPENED)
 
   }

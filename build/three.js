@@ -15967,12 +15967,9 @@
 			equationToGL[MinEquation] = gl.MIN;
 			equationToGL[MaxEquation] = gl.MAX;
 		} else {
-			const extension = extensions.get('EXT_blend_minmax');
-
-			if (extension !== null) {
-				equationToGL[MinEquation] = extension.MIN_EXT;
-				equationToGL[MaxEquation] = extension.MAX_EXT;
-			}
+			// const extension = extensions.get( 'EXT_blend_minmax' );
+			equationToGL[MinEquation] = 0x8007;
+			equationToGL[MaxEquation] = 0x8008;
 		}
 
 		const factorToGL = {
@@ -28217,13 +28214,9 @@
 		open(method, url
 		/* async, user, password 这几个参数在小程序内不支持*/
 		) {
-			console.log('wx.request:open', url);
-
 			_method.set(this, method);
 
 			_url.set(this, url);
-
-			console.log('_url', _url);
 
 			_changeReadyState.call(this, XMLHttpRequest.OPENED);
 		}
@@ -28639,20 +28632,16 @@
 				return cached;
 			}
 
-			console.log('createImage', url);
 			const image = this.canvas.createImage();
 			image.src = url; // 网络图片地址
 
 			function onImageLoad() {
-				console.log('onImageLoadxxxxxxxxxxx', Cache, onLoad, this);
 				Cache.add(url, this);
 				if (onLoad) onLoad(this);
 				scope.manager.itemEnd(url);
-				console.log('onImageLoad:end');
 			}
 
 			function onImageError(event) {
-				console.log('onImageError');
 				if (onError) onError(event);
 				scope.manager.itemError(url);
 				scope.manager.itemEnd(url);
@@ -28792,6 +28781,7 @@
 			loader.load(url, function (image) {
 				texture.image = image;
 				texture.needsUpdate = true;
+
 				if (onLoad !== undefined) {
 					onLoad(texture);
 				}

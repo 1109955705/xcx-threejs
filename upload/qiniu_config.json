@@ -4,6 +4,6 @@
     "bucket": "zhisonggang",
     "zone": "华南",
     "domain": "cdn.zhisonggang.com",
-    "targetDir": "../examples/models/obj/",
-    "prefix": "three"
+    "targetDir": "../examples/models/obj/cerberus",
+    "prefix": "threejs/examples/models/obj/cerberus/"
 }

@@ -34,7 +34,7 @@ class ImageLoader extends Loader {
 			return cached;
 
 		}
-		console.log('createImage', url)
+
 		const image = this.canvas.createImage();
 		image.src = url  // 网络图片地址
 
